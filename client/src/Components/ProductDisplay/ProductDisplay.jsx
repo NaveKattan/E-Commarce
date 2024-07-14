@@ -1,11 +1,13 @@
-import React from 'react'
-import './ProductDisplay.css'
+import React, { useContext } from 'react'
 import star_icon from '../Assets/star_icon.png'
 import star_dull_icon from '../Assets/star_dull_icon.png'
+import { ShopContext } from '../../Context/ShopContext'
+import './ProductDisplay.css'
 
 function ProductDisplay(props) {
 
     const {product} = props
+    const {addToCart} = useContext(ShopContext)
 
   return (
     <div className='productdisplay'>
@@ -49,7 +51,7 @@ Elevate your wardrobe with this timeless classic cotton button-down shirt. Craft
                 <div>XXL</div>
             </div>
         </div>
-        <button>Add To Cart</button>
+        <button onClick={()=>{addToCart(product.id)}}>Add To Cart</button>
         <p className="productdisplay-right-category"><span>Category: </span>Women, T-Shirt, Crop Top</p>
         <p className="productdisplay-right-category"><span>Tags: </span>Modern, Latest</p>
       </div>
